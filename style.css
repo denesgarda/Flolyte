@@ -1,0 +1,249 @@
+:root {
+    --light: #F7F6F4;
+    --dark: #0F1720;
+    --primary: #5170FF;
+    --secondary: #FF6B4A;
+    --mid: #ACAEB8;
+    --font-primary: 'Outfit', sans-serif;
+    --font-secondary: 'STIX Two Text', serif;
+    --font-title-weight: 700;
+    --font-title-size: 32;
+    --font-outfit-body-weight: 600;
+    --font-outfit-body-size: 16;
+    --font-stix-body-weight: 500;
+    --font-stix-body-size: 16;
+    --font-regular-weight: 400;
+    --font-regular-size: 12;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    color: var(--dark);
+    font-family: var(--font-secondary);
+    background-color: var(--light);
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-family: var(--font-primary);
+    font-size: 28;
+    font-weight: var(--font-title-weight);
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar .nav-links .current-page {
+    color: var(--primary);
+}
+
+.navbar a {
+    font-family: var(--font-primary);
+    font-size: var(--font-outfit-body-size);
+    font-weight: var(--font-outfit-body-weight);
+    text-decoration: none;
+    user-select: none;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.navbar a:focus,
+.navbar a:active {
+    outline: none;
+}
+
+.navbar a:hover {
+    opacity: 0.8;
+}
+
+.hero {
+    width: 100vw; /* full viewport width */
+    margin-left: calc(-50vw + 50%); /* fixes alignment inside centered layout */
+    margin-right: calc(-50vw + 50%);
+    padding: 6rem 0; /* more vertical breathing room */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+        url('./assets/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero h1 {
+    font-family: var(--font-primary);
+    font-size: var(--font-title-size);
+    font-weight: var(--font-title-weight);
+}
+
+.hero p {
+    max-width: 45%;
+    font-family: var(--font-secondary);
+    font-size: var(--font-stix-body-size);
+    font-weight: var(--font-stix-body-weight);
+}
+
+.hero .cta {
+    display: flex;
+    gap: 2rem;
+}
+
+.primary-button {
+    width: 16rem;
+    font-family: var(--font-primary);
+    font-size: var(--font-outfit-body-size);
+    font-weight: var(--font-outfit-body-weight);
+    color: var(--light);
+    background-color: var(--secondary);
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+    transition: all 0.25s ease;  /* smooth animation */
+}
+
+.secondary-button {
+    width: 16rem;
+    font-family: var(--font-primary);
+    font-size: var(--font-outfit-body-size);
+    font-weight: var(--font-outfit-body-weight);
+    color: var(--secondary);
+    background-color: transparent;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--secondary);
+    border-radius: 20px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+    transition: all 0.25s ease;  /* smooth animation */
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Primary hover look */
+.primary-button:hover {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+/* Secondary hover look */
+.secondary-button:hover {
+    background-color: var(--secondary);
+    color: var(--light);
+    border-color: var(--secondary);
+}
+
+/* Active (click) effect – shared */
+.primary-button:active,
+.secondary-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    opacity: 0.9;
+}
+
+.mission-statement {
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.mission-statement p {
+    max-width: 38%;
+    margin: 0 auto;
+    font-family: var(--font-secondary);
+    font-size: var(--font-stix-body-size);
+    font-weight: var(--font-regular-weight);
+}
+
+.sign-up {
+    display: flex;
+    justify-content: center;   /* centers the group as a whole */
+    align-items: center;
+    gap: 4rem;                 /* space between left and right blocks */
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.sign-up .left {
+    width: 400px;              /* or any desired width */
+    max-width: 45%;            /* keeps it responsive */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 24;
+}
+
+.sign-up .right {
+    width: 400px;              /* or any desired width */
+    max-width: 45%;            /* keeps it responsive */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sign-up .right form {
+    font-family: var(--font-primary);
+    font-weight: var(--font-outfit-body-weight);
+    font-size: 14;
+}
+
+.sign-up .right p {
+    color: var(--primary);
+}
+
+.footer {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%); 
+    margin-right: calc(-50vw + 50%);
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    background: var(--dark);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--light);
+    font-size: var(--font-regular-size);
+    font-weight: var(--font-regular-weight);
+    font-family: var(--font-primary);
+}
