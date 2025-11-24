@@ -26,6 +26,7 @@ html, body {
     color: var(--dark);
     font-family: var(--font-secondary);
     background-color: var(--light);
+    scroll-behavior: smooth;
 }
 
 .container {
