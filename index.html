@@ -34,8 +34,13 @@
             <div class="sign-up">
                 <h1 class="left">Flolyte is currently in development.</h1>
                 <div class="right">
-                    <form>
-                        <p>Waitlist currently unavailable.</p>
+                    <form action="https://formspree.io/f/xeowkwjw" method="POST" id="waitlist-form">
+                        <p>Get notified when we launch!</p>
+                        <div class="form-row">
+                            <input type="email" name="email" placeholder="Email" required />
+                            <button type="submit">SIGN UP</button>
+                        </div>
+                        <div class="form-message" id="form-message"></div>
                     </form>
                 </div>
             </div>
@@ -46,5 +51,52 @@
             </div>
         </section>
     </div>
+    <script>
+        const form = document.getElementById('waitlist-form');
+        const messageDiv = document.getElementById('form-message');
+        
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'SIGNING UP...';
+            messageDiv.textContent = '';
+            messageDiv.className = 'form-message';
+            
+            const formData = new FormData(form);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    messageDiv.textContent = 'Thanks! We\'ll notify you when we launch.';
+                    messageDiv.className = 'form-message success';
+                    form.reset();
+                } else {
+                    const data = await response.json();
+                    if (data.errors) {
+                        messageDiv.textContent = data.errors.map(error => error.message).join(', ');
+                    } else {
+                        messageDiv.textContent = 'Oops! Something went wrong. Please try again.';
+                    }
+                    messageDiv.className = 'form-message error';
+                }
+            } catch (error) {
+                messageDiv.textContent = 'Oops! Something went wrong. Please try again.';
+                messageDiv.className = 'form-message error';
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+            }
+        });
+    </script>
 </body>
 </html>
