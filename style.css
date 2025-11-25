@@ -1,20 +1,6 @@
-:root {
-    --light: #F7F6F4;
-    --dark: #0F1720;
-    --primary: #5170FF;
-    --secondary: #FF6B4A;
-    --mid: #ACAEB8;
-    --font-primary: 'Outfit', sans-serif;
-    --font-secondary: 'STIX Two Text', serif;
-    --font-title-weight: 700;
-    --font-title-size: 32;
-    --font-outfit-body-weight: 600;
-    --font-outfit-body-size: 16;
-    --font-stix-body-weight: 500;
-    --font-stix-body-size: 16;
-    --font-regular-weight: 400;
-    --font-regular-size: 12;
-}
+/* ============================================
+   CSS RESET & BASE STYLES
+   ============================================ */
 
 * {
     margin: 0;
@@ -29,27 +15,82 @@ html, body {
     scroll-behavior: smooth;
 }
 
+/* ============================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   ============================================ */
+
+:root {
+    /* Colors */
+    --light: #F7F6F4;
+    --dark: #0F1720;
+    --primary: #5170FF;
+    --secondary: #FF6B4A;
+    --mid: #ACAEB8;
+
+    /* Typography - Font Families */
+    --font-primary: 'Outfit', sans-serif;
+    --font-secondary: 'STIX Two Text', serif;
+
+    /* Typography - Font Sizes */
+    --font-title-size: 32px;
+    --font-outfit-body-size: 16px;
+    --font-stix-body-size: 16px;
+    --font-regular-size: 12px;
+    --font-logo-size: 28px;
+    --font-signup-heading-size: 24px;
+    --font-form-size: 14px;
+
+    /* Typography - Font Weights */
+    --font-title-weight: 700;
+    --font-outfit-body-weight: 600;
+    --font-stix-body-weight: 500;
+    --font-regular-weight: 400;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
+    --spacing-hero: 6rem;
+
+    /* Border Radius */
+    --radius-button: 20px;
+
+    /* Transitions */
+    --transition-default: all 0.25s ease;
+}
+
+/* ============================================
+   LAYOUT COMPONENTS
+   ============================================ */
+
 .container {
     margin: 0 auto;
-    padding: 0 3rem;
+    padding: 0 var(--spacing-xl);
 }
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
 
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 1rem 2rem;
     align-items: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
 }
 
 .navbar .logo {
     font-family: var(--font-primary);
-    font-size: 28;
+    font-size: var(--font-logo-size);
     font-weight: var(--font-title-weight);
 }
 
 .navbar .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: var(--spacing-lg);
 }
 
 .navbar .nav-links .current-page {
@@ -61,8 +102,8 @@ html, body {
     font-size: var(--font-outfit-body-size);
     font-weight: var(--font-outfit-body-weight);
     text-decoration: none;
-    user-select: none;
     color: inherit;
+    user-select: none;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -75,17 +116,21 @@ html, body {
     opacity: 0.8;
 }
 
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
 .hero {
-    width: 100vw; /* full viewport width */
-    margin-left: calc(-50vw + 50%); /* fixes alignment inside centered layout */
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
-    padding: 6rem 0; /* more vertical breathing room */
+    padding: var(--spacing-hero) 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 1rem;
+    gap: var(--spacing-sm);
     background:
         linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
         url('./assets/hero-bg.png');
@@ -109,72 +154,70 @@ html, body {
 
 .hero .cta {
     display: flex;
-    gap: 2rem;
+    gap: var(--spacing-lg);
 }
 
-.primary-button {
-    width: 16rem;
-    font-family: var(--font-primary);
-    font-size: var(--font-outfit-body-size);
-    font-weight: var(--font-outfit-body-weight);
-    color: var(--light);
-    background-color: var(--secondary);
-    padding: 0.5rem 1.5rem;
-    border: none;
-    border-radius: 20px;
-    display: inline-block;
-    cursor: pointer;
-    text-decoration: none;
-    user-select: none;
-    transition: all 0.25s ease;  /* smooth animation */
-}
+/* ============================================
+   BUTTONS
+   ============================================ */
 
+.primary-button,
 .secondary-button {
     width: 16rem;
     font-family: var(--font-primary);
     font-size: var(--font-outfit-body-size);
     font-weight: var(--font-outfit-body-weight);
-    color: var(--secondary);
-    background-color: transparent;
-    padding: 0.5rem 1.5rem;
-    border: 1px solid var(--secondary);
-    border-radius: 20px;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-button);
     display: inline-block;
     cursor: pointer;
     text-decoration: none;
     user-select: none;
-    transition: all 0.25s ease;  /* smooth animation */
+    transition: var(--transition-default);
+}
+
+.primary-button {
+    color: var(--light);
+    background-color: var(--secondary);
+    border: none;
+}
+
+.secondary-button {
+    color: var(--secondary);
+    background-color: transparent;
+    border: 1px solid var(--secondary);
 }
 
 .primary-button:hover,
 .secondary-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Primary hover look */
 .primary-button:hover {
     background-color: var(--dark);
     color: var(--light);
 }
 
-/* Secondary hover look */
 .secondary-button:hover {
     background-color: var(--secondary);
     color: var(--light);
     border-color: var(--secondary);
 }
 
-/* Active (click) effect – shared */
 .primary-button:active,
 .secondary-button:active {
     transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     opacity: 0.9;
 }
 
+/* ============================================
+   MISSION STATEMENT
+   ============================================ */
+
 .mission-statement {
-    padding: 3rem 0;
+    padding: var(--spacing-xl) 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -190,28 +233,32 @@ html, body {
     font-weight: var(--font-regular-weight);
 }
 
+/* ============================================
+   SIGN UP SECTION
+   ============================================ */
+
 .sign-up {
     display: flex;
-    justify-content: center;   /* centers the group as a whole */
+    justify-content: center;
     align-items: center;
-    gap: 4rem;                 /* space between left and right blocks */
-    padding: 3rem 0;
+    gap: var(--spacing-xxl);
+    padding: var(--spacing-xl) 0;
     text-align: center;
 }
 
 .sign-up .left {
-    width: 400px;              /* or any desired width */
-    max-width: 45%;            /* keeps it responsive */
+    width: 400px;
+    max-width: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-size: 24;
+    font-size: var(--font-signup-heading-size);
 }
 
 .sign-up .right {
-    width: 400px;              /* or any desired width */
-    max-width: 45%;            /* keeps it responsive */
+    width: 400px;
+    max-width: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -221,24 +268,28 @@ html, body {
 .sign-up .right form {
     font-family: var(--font-primary);
     font-weight: var(--font-outfit-body-weight);
-    font-size: 14;
+    font-size: var(--font-form-size);
 }
 
 .sign-up .right p {
     color: var(--primary);
 }
 
+/* ============================================
+   FOOTER
+   ============================================ */
+
 .footer {
     width: 100vw;
-    margin-left: calc(-50vw + 50%); 
+    margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
-    padding: 3rem 0;
+    padding: var(--spacing-xl) 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 1rem;
+    gap: var(--spacing-sm);
     background: var(--dark);
     background-size: cover;
     background-position: center;
