@@ -394,3 +394,189 @@ html, body {
     font-weight: var(--font-regular-weight);
     font-family: var(--font-primary);
 }
+
+/* ============================================
+   RESPONSIVE DESIGN - TABLETS
+   ============================================ */
+
+@media screen and (max-width: 1024px) {
+    .container {
+        padding: 0 var(--spacing-lg);
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        max-width: 70%;
+    }
+
+    .mission-statement p {
+        max-width: 60%;
+    }
+
+    .sign-up {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+    }
+
+    .sign-up .left,
+    .sign-up .right {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE
+   ============================================ */
+
+@media screen and (max-width: 768px) {
+    :root {
+        --font-title-size: 24px;
+        --font-logo-size: 22px;
+        --font-signup-heading-size: 20px;
+        --spacing-hero: 4rem;
+    }
+
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+
+    .navbar {
+        padding: var(--spacing-sm) var(--spacing-md);
+        flex-wrap: wrap;
+    }
+
+    .navbar .nav-links {
+        gap: var(--spacing-md);
+        font-size: 14px;
+    }
+
+    .hero {
+        padding: var(--spacing-hero) var(--spacing-md);
+    }
+
+    .hero h1 {
+        font-size: var(--font-title-size);
+        line-height: 1.2;
+    }
+
+    .hero p {
+        max-width: 100%;
+        font-size: 15px;
+        padding: 0 var(--spacing-sm);
+    }
+
+    .hero .cta {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        width: 100%;
+        padding: 0 var(--spacing-md);
+    }
+
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .mission-statement {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .mission-statement p {
+        max-width: 100%;
+        font-size: 15px;
+        padding: 0 var(--spacing-sm);
+    }
+
+    .sign-up {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .sign-up .left {
+        width: 100%;
+        max-width: 100%;
+        font-size: var(--font-signup-heading-size);
+        padding: 0 var(--spacing-sm);
+    }
+
+    .sign-up .right {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .sign-up .right form {
+        max-width: 100%;
+    }
+
+    .sign-up .right form .form-row {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .sign-up .right form input[type="email"],
+    .sign-up .right form button[type="submit"] {
+        width: 100%;
+    }
+
+    .sign-up .right form button[type="submit"] {
+        flex-shrink: 1;
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - SMALL MOBILE
+   ============================================ */
+
+@media screen and (max-width: 480px) {
+    :root {
+        --font-title-size: 20px;
+        --font-logo-size: 20px;
+        --font-signup-heading-size: 18px;
+        --font-outfit-body-size: 14px;
+        --spacing-hero: 3rem;
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .navbar {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .navbar .nav-links {
+        gap: var(--spacing-sm);
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: var(--spacing-hero) var(--spacing-sm);
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .mission-statement {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .mission-statement p {
+        font-size: 14px;
+    }
+
+    .sign-up {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .footer {
+        padding: var(--spacing-lg) var(--spacing-sm);
+        font-size: 11px;
+    }
+}
